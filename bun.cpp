@@ -121,6 +121,7 @@ bool BunIndex::read_file(char const *path, std::vector<uint8_t> &out) {
     } else {
         std::ifstream is(full_path, std::ios::binary);
         if (!is) {
+            fprintf(stderr, "Cannot read %s\n", full_path.c_str());
             return false;
         }
         is.seekg(0, std::ios::end);
